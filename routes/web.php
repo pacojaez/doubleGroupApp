@@ -1,6 +1,9 @@
 <?php
 
+use App\Livewire\ListTrabajadors;
+use App\Livewire\CreateTrabajador;
 use Illuminate\Support\Facades\Route;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -16,6 +19,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/trabajador/create', CreateTrabajador::class)->name('create-trabajador');
+Route::get('/trabajador/list', ListTrabajadors::class)->name('list-trabajadors');
 
 Route::middleware([
     'auth:sanctum',

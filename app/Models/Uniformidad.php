@@ -33,4 +33,5 @@ class Uniformidad extends Model
     {
         return $this->belongsToMany(Trabajador::class)->withTimestamps();;
     }
+
 }

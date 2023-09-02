@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use \Staudenmeir\EloquentEagerLimit\HasEagerLimit;
 
 
 class Trabajador extends Model
@@ -45,5 +46,10 @@ class Trabajador extends Model
     public function uniformidads(): BelongsToMany
     {
         return $this->belongsToMany(Uniformidad::class)->withTimestamps();;
+    }
+
+    public function getLimitedUniformidads()
+    {
+        return $this->uniformidads()->take(3)->get();
     }
 }
