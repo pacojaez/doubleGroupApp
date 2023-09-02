@@ -20,7 +20,7 @@ class DatabaseSeeder extends Seeder
     {
         \App\Models\Trabajador::factory(10)->create();
         \App\Models\Uniformidad::factory(10)->create();
-
+        //done
         $uniformidades = Uniformidad::all();
 
         for ($i = 0; $i < 50; $i++) {
