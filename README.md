@@ -9,7 +9,8 @@
 
 ## About Laravel
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Desarrollado en PHP 8.2.9 sobre Laravel Framework version 10.21.0.
+Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
 
 - [Simple, fast routing engine](https://laravel.com/docs/routing).
 - [Powerful dependency injection container](https://laravel.com/docs/container).
@@ -49,13 +50,18 @@ We would like to extend our thanks to the following sponsors for funding Laravel
 - **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
 - **[Lendio](https://lendio.com)**
 
-## Contributing
+## Roles
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+Esta Aplicación tiene unicamente dos roles: ADMINISTRADOR y GESTOR.
+El ADMINISTRADOR puede dar de alta, borrar y actualizar GESTORES así como realizar las mismas acciones que
+            el GESTOR.
+            El GESTOR puede dar de alta trabajadores, uniformidades y asignar uniformidades a trabajadores.
 
-## Code of Conduct
+## TODO
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+Se puede añadir un control de stock a los items de Uniformidad.
+Se puede usar el "borrado blando" (sof deletes) tanto para la Uniformidad como los trabajadores
+Middlewares
 
 ## Security Vulnerabilities
 
@@ -63,4 +69,4 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 
 ## License
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Se usan middlewares en todas las rutas para evitar el uso incorrecto de la APP.
