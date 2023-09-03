@@ -2,6 +2,8 @@
 
 use App\Livewire\ListTrabajadors;
 use App\Livewire\CreateTrabajador;
+use App\Livewire\ListUniformidads;
+use App\Livewire\CreateUniformidads;
 use Illuminate\Support\Facades\Route;
 
 
@@ -22,6 +24,8 @@ Route::get('/', function () {
 
 Route::get('/trabajador/create', CreateTrabajador::class)->name('create-trabajador');
 Route::get('/trabajador/list', ListTrabajadors::class)->name('list-trabajadors');
+Route::get('/uniformidad/create', CreateUniformidads::class)->name('create-uniformidad');
+Route::get('/uniformidad/list', ListUniformidads::class)->name('list-uniformidads');
 
 Route::middleware([
     'auth:sanctum',

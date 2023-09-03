@@ -21,6 +21,12 @@
                     <x-nav-link href="{{ route('list-trabajadors') }}" :active="request()->routeIs('list-trabajadors')">
                         {{ __('Listar Trabajadores') }}
                     </x-nav-link>
+                    <x-nav-link href="{{ route('create-uniformidad') }}" :active="request()->routeIs('create-uniformidad')">
+                        {{ __('Añadir Uniformidad') }}
+                    </x-nav-link>
+                    <x-nav-link href="{{ route('list-uniformidads') }}" :active="request()->routeIs('list-uniformidads')">
+                        {{ __('Listar Uniformidades') }}
+                    </x-nav-link>
                 </div>
             </div>
 

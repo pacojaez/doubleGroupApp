@@ -3,22 +3,17 @@
 namespace App\Livewire;
 
 use Livewire\Component;
-use App\Models\Trabajador;
-use Livewire\WithPagination;
-use \Staudenmeir\EloquentEagerLimit\HasEagerLimit;
+use App\Models\Uniformidad;
 
-class ListTrabajadors extends Component
+class ListUniformidads extends Component
 {
-
-    use WithPagination;
-
-    public $trabajadors = "";
+    public $uniformidads = "";
     public $query = '';
 
     public function search()
     {
-        $this->trabajadors = Trabajador::where('name', 'like', '%'.$this->query.'%')
-        ->with('uniformidads')
+        $this->uniformidads = Uniformidad::where('name', 'like', '%'.$this->query.'%')
+        ->with('trabajadors')
         // ->with(['uniformidads' => function($query) {
         //     $query->get(['type', 'uniformidad']);
         //   }])
@@ -32,23 +27,22 @@ class ListTrabajadors extends Component
         // $this->trabajadors = Trabajador::with('uniformidads')->get();
         // $this->trabajadors = Trabajador::with('getLimitedUniformidads')->get();
         // $this->trabajadors = Trabajador::all()->uniformidads()->orderBy('uniformidads.created_at')->take(1)->get();
-        $this->trabajadors = Trabajador::with('uniformidads')->get();
+        $this->uniformidads = Uniformidad::with('trabajadors')->get();
 
     }
 
 
     public function mount()
     {
-        $this->trabajadors = Trabajador::with('uniformidads')->get();
+        $this->uniformidads = Uniformidad::with('trabajadors')->orderBy('created_at', 'DESC')->get();
 
     }
 
+
     public function render()
     {
-
-        return view('livewire.list-trabajadors', [
-            'trabajadors' => $this->trabajadors
-            // 'trabajadors' => Trabajador::paginate(10)
+        return view('livewire.list-uniformidads',[
+            'uniformidads' => $this->uniformidads
         ]);
     }
 }
