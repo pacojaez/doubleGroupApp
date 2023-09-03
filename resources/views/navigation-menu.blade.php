@@ -27,6 +27,9 @@
                     <x-nav-link href="{{ route('list-uniformidads') }}" :active="request()->routeIs('list-uniformidads')">
                         {{ __('Listar Uniformidades') }}
                     </x-nav-link>
+                    <x-nav-link href="{{ route('asign-uniformidad') }}" :active="request()->routeIs('asign-uniformidad')">
+                        {{ __('ASIGNAR UNIFORMIDAD') }}
+                    </x-nav-link>
                 </div>
             </div>
 
@@ -164,6 +167,21 @@
         <div class="pt-2 pb-3 space-y-1">
             <x-responsive-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                 {{ __('Dashboard') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link href="{{ route('create-trabajador') }}" :active="request()->routeIs('create-trabajador')">
+                {{ __('AÑADIR TRABAJADOR') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link href="{{ route('list-trabajadors') }}" :active="request()->routeIs('list-trabajadors')">
+                {{ __('LISTAR TRABAJADORES') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link href="{{ route('create-uniformidad') }}" :active="request()->routeIs('create-uniformidad')">
+                {{ __('AÑADIR UNIFORMIDAD') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link href="{{ route('list-uniformidads') }}" :active="request()->routeIs('list-uniformidads')">
+                {{ __('LISTAR UNIFORMIDADES') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link href="{{ route('asign-uniformidad') }}" :active="request()->routeIs('asign-uniformidad')">
+                {{ __('ASIGNAR UNIFORMIDAD A TRABAJADOR') }}
             </x-responsive-nav-link>
         </div>
 

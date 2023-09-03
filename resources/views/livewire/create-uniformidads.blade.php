@@ -30,7 +30,7 @@
                                         <label for="surname"
                                             class="block text-sm font-medium text-gray-700">Tipo</label>
                                         <input type="text" name="type"
-                                            placeholder="Sudadera, Polo, Pasntalón, Zapato" id="type"
+                                            placeholder="Sudadera, Polo, Pantalón, Zapato" id="type"
                                             wire:model="type" {{-- autocomplete="given-name" --}}
                                             class="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                                     </div>

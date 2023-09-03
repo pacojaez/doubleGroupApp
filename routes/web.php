@@ -5,7 +5,8 @@ use App\Livewire\CreateTrabajador;
 use App\Livewire\ListUniformidads;
 use App\Livewire\CreateUniformidads;
 use Illuminate\Support\Facades\Route;
-
+use App\Livewire\AsignUniformidadToTrabajador;
+use App\Livewire\ShowTrabajador;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,6 +27,8 @@ Route::get('/trabajador/create', CreateTrabajador::class)->name('create-trabajad
 Route::get('/trabajador/list', ListTrabajadors::class)->name('list-trabajadors');
 Route::get('/uniformidad/create', CreateUniformidads::class)->name('create-uniformidad');
 Route::get('/uniformidad/list', ListUniformidads::class)->name('list-uniformidads');
+Route::get('/asignUniformidadTrabajador', AsignUniformidadToTrabajador::class)->name('asign-uniformidad');
+Route::get('/trabajador/{id}', ShowTrabajador::class)->name('show-trabajador');
 
 Route::middleware([
     'auth:sanctum',

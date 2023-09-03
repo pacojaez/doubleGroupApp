@@ -1,24 +1,37 @@
 <div>
-    <section class="container p-6 mx-auto font-mono justify-items-center">
-        <div class="w-1/2 mb-8 overflow-hidden rounded-lg shadow-lg">
-            <div class="w-full overflow-x-auto">
-                <form wire:submit="search">
-                    <input type="text" wire:model="query">
-                    <button type="submit">Busqueda por NOMBRE</button>
-                </form>
-            </div>
+    @if (session('uniformidadAddedToWorker'))
+        <div class="alert alert-success">
+            {{ session('uniformidadAddedToWorker') }}
         </div>
-        <div class="w-1/2 mb-8 overflow-hidden rounded-lg shadow-lg">
-            <div class="w-full overflow-x-auto">
-                <form wire:submit="listAll">
-                    {{-- <input type="text" wire:model="listAll"> --}}
-                    <button type="submit">LISTAR TODOS LOS TRABAJADORES</button>
-                </form>
+    @endif
+    <div class="relative flex items-center justify-center w-full h-20 px-8 mx-auto mt-10 bg-black ">
+        <section class="container p-6 mx-auto font-mono justify-items-center">
+            <div class="w-full p-6 mb-8 overflow-hidden rounded-lg shadow-lg">
+                <div class="w-full overflow-x-auto">
+                    <form wire:submit="search">
+                        <input type="text" wire:model="query" placeholder="Busqueda por NOMBRE">
+                        <button
+                            class="p-6 m-2 text-2xl uppercase duration-200 border border-black rounded-lg rounded-tr-none rounded-bl-none shadow-lg outline-none hover:shadow-xl hover:rounded-none">
+                            BUSCAR</button>
+                    </form>
+                </div>
             </div>
-        </div>
-    </section>
-    <section class="container p-6 mx-auto font-mono">
+        </section>
+        <section class="container p-6 mx-auto font-mono justify-items-center">
+            <div class="w-full p-6 mb-8 overflow-hidden rounded-lg shadow-lg">
+                <div class="w-full overflow-x-auto">
+                    <form wire:submit="listAll">
+                        {{-- <input type="text" wire:model="listAll"> --}}
+                        <button type="submit"
+                            class="p-6 m-2 text-2xl uppercase duration-200 border border-black rounded-lg rounded-tr-none rounded-bl-none shadow-lg outline-none hover:shadow-xl hover:rounded-none">
+                            LISTAR TODOS LOS TRABAJADORES</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </div>
 
+    <section class="container p-6 mx-auto font-mono">
         <div class="w-full mb-8 overflow-hidden rounded-lg shadow-lg">
             <div class="w-full overflow-x-auto">
                 <table class="w-full">
@@ -51,8 +64,12 @@
                                                     </div>
                                                 </div>
                                                 <div>
-                                                    <p class="font-semibold text-black">{{ $trabajador->name }}</p>
-                                                    <p class="font-semibold text-black">{{ $trabajador->surname }}</p>
+                                                    <a
+                                                        href="{{ route('show-trabajador', ['id' => $trabajador->id]) }} ">
+                                                        <p class="font-semibold text-black">{{ $trabajador->name }}</p>
+                                                        <p class="font-semibold text-black">{{ $trabajador->surname }}
+                                                        </p>
+                                                    </a>
                                                     <svg fill="none" height="24"
                                                         shape-rendering="geometricPrecision" stroke="currentColor"
                                                         stroke-linecap="round" stroke-linejoin="round"
@@ -77,7 +94,8 @@
                                 </td>
                                 <td class="px-4 py-3 font-semibold border text-ms">{{ $trabajador->destiny }}</td>
                                 <td class="px-4 py-3 font-semibold border text-ms">{{ $trabajador->tallaCamiseta }}</td>
-                                <td class="px-4 py-3 font-semibold border text-ms">{{ $trabajador->tallaPantalon }}</td>
+                                <td class="px-4 py-3 font-semibold border text-ms">{{ $trabajador->tallaPantalon }}
+                                </td>
                                 <td class="px-4 py-3 font-semibold border text-ms">{{ $trabajador->tallaCalzado }}</td>
                             </tr>
                         @endforeach
