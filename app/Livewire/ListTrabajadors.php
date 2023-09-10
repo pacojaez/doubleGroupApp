@@ -39,7 +39,11 @@ class ListTrabajadors extends Component
 
     public function mount()
     {
-        $this->trabajadors = Trabajador::with('uniformidads')->get();
+        $this->trabajadors = Trabajador::with('getLimitedUniformidads')->get();
+        // dd($this->trabajadors);
+        // foreach($this->trabajadors as $trabajador){
+        //     dd($trabajador->uniformidads->take(3));
+        // }
 
     }
 

@@ -58,10 +58,7 @@
                                 </div>
                             </div>
                             <div class="px-4 py-3 text-right bg-white sm:px-6">
-                                <button type="submit"
-                                    class="inline-flex justify-center w-24 px-4 py-2 mr-4 text-sm font-medium text-white bg-gray-600 border border-transparent rounded-md shadow-sm ring ring-gray-500 ring-offset-4 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-500">
-                                    New
-                                </button>
+
                                 <button type="submit"
                                     class="inline-flex justify-center w-24 px-4 py-2 text-sm font-medium bg-indigo-600 border border-transparent rounded-md shadow-sm ring ring-indigo-500 ring-offset-4 hover:bg-indigo-700 text-whitefocus:outline-none focus:ring-2 focus:ring-indigo-500">
                                     Save

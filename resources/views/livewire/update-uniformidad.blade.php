@@ -1,16 +1,14 @@
 <div class="py-12">
     <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
         <div class="overflow-hidden bg-white shadow-xl dark:bg-gray-800 sm:rounded-lg">
-            <form wire:submit="save">
+            <form wire:submit="update">
                 <!-- This is an example component -->
                 <div
                     class="w-full pt-6 overflow-hidden text-3xl font-bold text-center text-black bg-gray-300 shadow h-14 sm:rounded-md ">
-                    Formulario Añadir Uniformidad
+                    Formulario Actualizar Uniformidad
                 </div>
 
                 <section class="relative p-0 m-0 text-gray-600 body-font"></section>
-
-
                 <div class="container mx-auto">
                     <div class="flex flex-col w-full mb-1 text-center">
                     </div>
@@ -58,15 +56,14 @@
                                     <div class="col-span-6 sm:col-span-3">
                                         <label for="email"
                                             class="block text-sm font-medium text-gray-700">STOCK</label>
-                                        <input type="number" name="stock" placeholder="XXL, 48, S, M, 52 ...."
-                                            id="stock" wire:model="stock" {{-- autocomplete="given-name" --}}
+                                        <input type="number" name="stock" placeholder="-----------" id="stock"
+                                            wire:model="stock" {{-- autocomplete="given-name" --}}
                                             class="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                                     </div>
-                                    <button type="submit"
+                                    <button type="button" wire:click='update({{ $uniformidad->id }})'
                                         class="inline-flex justify-center w-24 px-4 py-2 text-sm font-medium bg-indigo-600 border border-transparent rounded-md shadow-sm ring ring-indigo-500 ring-offset-4 hover:bg-indigo-700 text-whitefocus:outline-none focus:ring-2 focus:ring-indigo-500">
                                         Save
                                     </button>
-
                                 </div>
                             </div>
                         </div>

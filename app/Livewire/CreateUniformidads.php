@@ -13,6 +13,7 @@ class CreateUniformidads extends Component
     public $type = '';
     public $color = '';
     public $talla = '';
+    public $stock = 0;
 
     public function save()
     {
@@ -21,7 +22,8 @@ class CreateUniformidads extends Component
             'description' => $this->description,
             'type' => $this->type,
             'color' => $this->color,
-            'talla' => $this->talla
+            'talla' => $this->talla,
+            'stock' => $this->stock
         ]);
 
         return redirect()->to('/uniformidad/list');

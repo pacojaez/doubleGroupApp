@@ -25,16 +25,21 @@ class AsignUniformidadToTrabajador extends Component
         $trabajador = Trabajador::findOrFail($this->trabajador);
         $uniformidad = Uniformidad::findOrFail($this->uniformidad);
         $trabajador->uniformidads()->attach($this->uniformidad);
+        $uniformidad->decrement('stock', 1);
         // $trabajador->attach($this->uniformidad);
 
-        return redirect()->to('/trabajador/list')->with('uniformidadAddedToWorker', 'Asignada uniformidad al trabajador!');
+        // return redirect()->to('/trabajador/{id =>$trabajador->id}')->with('uniformidadAddedToWorker', 'Asignada uniformidad al trabajador!');
+        return redirect()->route('show-trabajador', [
+            'id' => $trabajador->id
+        ])
+        ->with('uniformidadAddedToWorker', 'Asignada uniformidad al trabajador!');
     }
 
     public function render()
     {
         return view('livewire.asign-uniformidad-to-trabajador', [
             'trabajadors' => Trabajador::all(),
-            'uniformidads' => Uniformidad::orderBy('type', 'ASC')->get()
+            'uniformidads' => Uniformidad::where('stock', '>', 0)->orderBy('type', 'ASC')->get()
         ]
     );
     }

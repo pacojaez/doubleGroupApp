@@ -23,7 +23,8 @@ class Uniformidad extends Model
         'description',
         'type',
         'color',
-        'talla'
+        'talla',
+        'stock'
     ];
 
     /**

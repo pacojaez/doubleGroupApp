@@ -50,6 +50,7 @@ class Trabajador extends Model
 
     public function getLimitedUniformidads()
     {
-        return $this->uniformidads()->take(3)->get();
+        return  $this->belongsToMany(Uniformidad::class)->take(3);
     }
+
 }

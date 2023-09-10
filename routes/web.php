@@ -1,12 +1,15 @@
 <?php
 
+use App\Livewire\ShowTrabajador;
 use App\Livewire\ListTrabajadors;
 use App\Livewire\CreateTrabajador;
+use App\Livewire\DeleteTrabajador;
 use App\Livewire\ListUniformidads;
+use App\Livewire\UpdateTrabajador;
+use App\Livewire\UpdateUniformidad;
 use App\Livewire\CreateUniformidads;
 use Illuminate\Support\Facades\Route;
 use App\Livewire\AsignUniformidadToTrabajador;
-use App\Livewire\ShowTrabajador;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,12 +26,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/trabajador/create', CreateTrabajador::class)->name('create-trabajador');
-Route::get('/trabajador/list', ListTrabajadors::class)->name('list-trabajadors');
-Route::get('/uniformidad/create', CreateUniformidads::class)->name('create-uniformidad');
-Route::get('/uniformidad/list', ListUniformidads::class)->name('list-uniformidads');
-Route::get('/asignUniformidadTrabajador', AsignUniformidadToTrabajador::class)->name('asign-uniformidad');
-Route::get('/trabajador/{id}', ShowTrabajador::class)->name('show-trabajador');
+
+
 
 Route::middleware([
     'auth:sanctum',
@@ -38,4 +37,13 @@ Route::middleware([
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
+    Route::get('/trabajador/create', CreateTrabajador::class)->name('create-trabajador');
+    Route::get('/trabajador/list', ListTrabajadors::class)->name('list-trabajadors');
+    Route::get('/uniformidad/create', CreateUniformidads::class)->name('create-uniformidad');
+    Route::get('/uniformidad/list', ListUniformidads::class)->name('list-uniformidads');
+    Route::get('/asignUniformidadTrabajador', AsignUniformidadToTrabajador::class)->name('asign-uniformidad');
+    Route::get('/trabajador/{id}', ShowTrabajador::class)->name('show-trabajador');
+    Route::get('/trabajador/{id}/update', UpdateTrabajador::class)->name('update-trabajador');
+    Route::get('/trabajador/{id}/delete', DeleteTrabajador::class)->name('delete-trabajador');
+    Route::get('/uniformidad/{id}/update', UpdateUniformidad::class)->name('update-uniformidad');
 });
