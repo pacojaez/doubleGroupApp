@@ -15,6 +15,7 @@ use App\Http\Controllers\RolesController;
 use App\Livewire\AsignUniformidadToTrabajador;
 use App\Http\Controllers\PermissionsController;
 use App\Http\Controllers\UsersController;
+use Illuminate\Support\Facades\Artisan;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,7 +30,20 @@ use App\Http\Controllers\UsersController;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('welcome');
+
+    Route::get('/symlink', function(){
+        Artisan::call('storage:link');
+        return view('welcome');
+    })->name('symlink');
+
+    Route::get('/clearcache', function() {
+        Artisan::call('cache:clear');
+        Artisan::call('view:clear');
+        Artisan::call('optimize:clear');
+        return view('welcome');
+    })->name('clearcache');
+
 
 
 
