@@ -121,6 +121,10 @@
                                 {{ __('Manage Account') }}
                             </div>
 
+                            <x-dropdown-link href="{{ route('trabajadors-deleted') }}">
+                                {{ __('Trabajadores Borrados') }}
+                            </x-dropdown-link>
+
                             <x-dropdown-link href="{{ route('profile.show') }}">
                                 {{ __('Profile') }}
                             </x-dropdown-link>
@@ -181,7 +185,7 @@
                 {{ __('LISTAR UNIFORMIDADES') }}
             </x-responsive-nav-link>
             <x-responsive-nav-link href="{{ route('asign-uniformidad') }}" :active="request()->routeIs('asign-uniformidad')">
-                {{ __('ASIGNAR UNIFORMIDAD A TRABAJADOR') }}
+                {{ __('ASIGNAR UNIFORMIDAD') }}
             </x-responsive-nav-link>
         </div>
 
@@ -203,6 +207,9 @@
 
             <div class="mt-3 space-y-1">
                 <!-- Account Management -->
+                <x-responsive-nav-link href="{{ route('trabajadors-deleted') }}" :active="request()->routeIs('trabajadors-deleted')">
+                    {{ __('Trabajadores Eliminados') }}
+                </x-responsive-nav-link>
                 <x-responsive-nav-link href="{{ route('profile.show') }}" :active="request()->routeIs('profile.show')">
                     {{ __('Profile') }}
                 </x-responsive-nav-link>

@@ -1,12 +1,15 @@
 <div class="py-12">
+    <section class="container p-6 mx-auto font-mono">
+        <div class="w-full mb-2 overflow-hidden text-gray-200 bg-gray-600 rounded-lg shadow-lg">
+            <div class="flex justify-center w-full overflow-x-auto">
+                <h2 class="text-xl font-bold">ASIGNACIÓN UNIFORMIDAD A TRABAJADOR</h2>
+            </div>
+        </div>
+    </section>
     <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
         <div class="overflow-hidden bg-white shadow-xl dark:bg-gray-800 sm:rounded-lg">
             <form wire:submit="save">
                 <!-- This is an example component -->
-                <div
-                    class="w-full pt-6 overflow-hidden text-3xl font-bold text-center text-black bg-gray-300 shadow h-14 sm:rounded-md ">
-                    ASIGNACIÓN UNIFORMIDAD A TRABAJADOR
-                </div>
                 <section class="relative p-0 m-0 text-gray-600 body-font"></section>
                 <div class="container mx-auto">
                     <div class="flex flex-col w-full mb-1 text-center">

@@ -1,7 +1,7 @@
 <div>
     @if (session('uniformidadAddedToWorker'))
-        <div class="flex p-4 mb-4 text-sm text-green-700 bg-green-100 rounded-lg" role="alert" x-data="{ show: true }"
-            x-show="show" x-init="setTimeout(() => show = false, 3000)">
+        <div class="flex justify-center p-4 mb-4 text-sm text-green-700 bg-green-100 rounded-lg" role="alert"
+            x-data="{ show: true }" x-show="show" x-init="setTimeout(() => show = false, 3000)">
             <svg class="inline w-5 h-5 mr-3" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                 <path fill-rule="evenodd"
                     d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
@@ -12,9 +12,22 @@
             </div>
         </div>
     @endif
+    @if (session('deletedWorker'))
+        <div class="flex justify-center p-4 mb-4 text-sm text-green-700 bg-green-100 rounded-lg" role="alert"
+            x-data="{ show: true }" x-show="show" x-init="setTimeout(() => show = false, 3000)">
+            <svg class="inline w-5 h-5 mr-3" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd"
+                    d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
+                    clip-rule="evenodd"></path>
+            </svg>
+            <div>
+                <span class="font-medium">Success alert!</span> {{ session('deletedWorker') }}
+            </div>
+        </div>
+    @endif
     @if (session('updatedWorker'))
-        <div class="flex p-4 mb-4 text-sm text-green-700 bg-green-100 rounded-lg" role="alert" x-data="{ show: true }"
-            x-show="show" x-init="setTimeout(() => show = false, 3000)">
+        <div class="flex justify-center p-4 mb-4 text-sm text-green-700 bg-green-100 rounded-lg" role="alert"
+            x-data="{ show: true }" x-show="show" x-init="setTimeout(() => show = false, 3000)">
             <svg class="inline w-5 h-5 mr-3" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                 <path fill-rule="evenodd"
                     d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
@@ -164,10 +177,16 @@
                                             EDITAR
                                         </button>
                                     </a>
-                                    <button type="submit"
+                                    <a href="{{ route('delete-trabajador', ['id' => $trabajador->id]) }}">
+                                        <button type="button"
+                                            class="inline-flex justify-center w-24 px-4 py-2 text-sm font-medium text-white bg-red-600 border border-transparent rounded-md shadow-sm ring ring-red-200 ring-offset-2 hover:bg-red-700 text-whitefocus:outline-none focus:ring-2 focus:ring-indigo-500">
+                                            BORRAR
+                                        </button>
+                                    </a>
+                                    {{-- <button type="submit"
                                         class="inline-flex justify-center w-24 px-4 py-2 text-sm font-medium bg-red-600 border border-transparent rounded-md shadow-sm ring ring-red-200 ring-offset-2 hover:bg-red-800 text-whitefocus:outline-none focus:ring-2 focus:ring-indigo-500">
                                         BORRAR
-                                    </button>
+                                    </button> --}}
                                 </td>
                             </tr>
                         @endforeach

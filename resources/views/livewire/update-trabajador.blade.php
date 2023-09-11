@@ -94,9 +94,9 @@
                                         BORRAR
                                     </button> --}}
                                     <td>
-                                        <button
+                                        {{-- <button
                                             wire:click="$dispatch('openModal', { component: 'delete-trabajador', arguments: { id: {{ $trabajador->id }} }})">BORRAR
-                                            TRABAJADOR</button>
+                                            TRABAJADOR</button> --}}
                                         {{-- <button type="button" wire:click="deleteId({{ $trabajador->id }})"
                                             class="inline-flex justify-center w-24 px-4 py-2 text-sm font-medium bg-red-600 border border-transparent rounded-md shadow-sm ring ring-red-500 ring-offset-4 hover:bg-indigo-700 text-whitefocus:outline-none focus:ring-2 focus:ring-indigo-500"
                                             data-toggle="modal" data-target="#exampleModal">DELETE</button> --}}
