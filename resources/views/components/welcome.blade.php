@@ -45,6 +45,12 @@
             Se ha usado el scafold de Jetstream para autenticación.
         </p>
         <p class="mt-4 text-sm leading-relaxed text-gray-500 dark:text-gray-400">
+            Se ha usado spatie/laravel-permission para la gestión de roles y permisos
+        </p>
+        <p class="mt-4 text-sm leading-relaxed text-gray-500 dark:text-gray-400">
+            Se ha usado laravelcollective/html
+        </p>
+        <p class="mt-4 text-sm leading-relaxed text-gray-500 dark:text-gray-400">
             Alojado para test en IONOS.
         </p>
 

@@ -12,7 +12,7 @@
             </div>
         </div>
     @endif
-    @if (session('updatedUniformidad'))
+    @if (session('deletedWorker'))
         <div class="flex justify-center p-4 mb-4 text-sm text-green-700 bg-green-100 rounded-lg" role="alert"
             x-data="{ show: true }" x-show="show" x-init="setTimeout(() => show = false, 3000)">
             <svg class="inline w-5 h-5 mr-3" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
@@ -21,7 +21,20 @@
                     clip-rule="evenodd"></path>
             </svg>
             <div>
-                <span class="font-medium">Success alert!</span> {{ session('updatedUniformidad') }}
+                <span class="font-medium">Success alert!</span> {{ session('deletedWorker') }}
+            </div>
+        </div>
+    @endif
+    @if (session('updatedWorker'))
+        <div class="flex justify-center p-4 mb-4 text-sm text-green-700 bg-green-100 rounded-lg" role="alert"
+            x-data="{ show: true }" x-show="show" x-init="setTimeout(() => show = false, 3000)">
+            <svg class="inline w-5 h-5 mr-3" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd"
+                    d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
+                    clip-rule="evenodd"></path>
+            </svg>
+            <div>
+                <span class="font-medium">Success alert!</span> {{ session('updatedWorker') }}
             </div>
         </div>
     @endif
@@ -46,7 +59,7 @@
                             <form wire:submit="listAll">
                                 <button type="submit"
                                     class="hover:shadow-form rounded-md bg-[#6A64F1] py-3 px-8 text-center text-base font-semibold text-white outline-none">
-                                    LISTAR TODAS LAS UNIFORMIDADES
+                                    LISTAR TODOS LOS userES
                                 </button>
                             </form>
 
@@ -56,59 +69,40 @@
             </div>
         </div>
     </section>
-    {{-- <div class="relative flex items-center justify-center w-full h-20 px-8 mx-auto mt-10 bg-black ">
-        <section class="container p-6 mx-auto font-mono justify-items-center">
-            <div class="w-full p-6 mb-8 overflow-hidden rounded-lg shadow-lg">
-                <div class="w-full overflow-x-auto">
-                    <form wire:submit="search">
-                        <input type="text" wire:model="query" placeholder="Busqueda por NOMBRE">
-                        <button
-                            class="p-6 m-2 text-2xl uppercase duration-200 border border-black rounded-lg rounded-tr-none rounded-bl-none shadow-lg outline-none hover:shadow-xl hover:rounded-none">
-                            BUSCAR</button>
-                    </form>
-                </div>
-            </div>
-        </section>
-        <section class="container p-6 mx-auto font-mono justify-items-center">
+    {{-- <section class="container p-6 mx-auto font-mono justify-items-center">
             <div class="w-full p-6 mb-8 overflow-hidden rounded-lg shadow-lg">
                 <div class="w-full overflow-x-auto">
                     <form wire:submit="listAll">
                         {{-- <input type="text" wire:model="listAll">
                         <button type="submit"
                             class="p-6 m-2 text-2xl uppercase duration-200 border border-black rounded-lg rounded-tr-none rounded-bl-none shadow-lg outline-none hover:shadow-xl hover:rounded-none">
-                            LISTAR TODAS LAS UNIFORMIDADES</button>
+                            LISTAR TODOS LOS userES</button>
                     </form>
                 </div>
             </div>
-        </section>
-    </div> --}}
-    <section class="container p-6 mx-auto font-mono">
+        </section> --}}
+    {{-- </div> --}}
 
+    <section class="container p-6 mx-auto font-mono">
         <div class="w-full mb-8 overflow-hidden rounded-lg shadow-lg">
             <div class="w-full overflow-x-auto">
                 <table class="w-full">
                     <thead>
                         <tr
                             class="font-semibold tracking-wide text-left text-gray-900 uppercase bg-gray-100 border-b border-gray-600 text-md">
-                            <th class="px-4 py-3"></th>
-                            <th class="px-4 py-3">TIPO</th>
-                            <th class="px-4 py-3">DESCRIPCIÓN</th>
-                            <th class="px-4 py-3">COLOR</th>
-                            <th class="px-4 py-3">TALLA</th>
-                            <th class="px-4 py-3">STOCK</th>
+                            <th class="px-4 py-3">NOMBRE y APELLIDOS</th>
+                            <th class="px-4 py-3">DNI</th>
+                            <th class="px-4 py-3">EMAIL</th>
+                            <th class="px-4 py-3">DESTINO</th>
+                            <th class="px-4 py-3">TALLA CAMISETA</th>
+                            <th class="px-4 py-3">TALLA PANTALÓN</th>
+                            <th class="px-4 py-3"># CALZADO</th>
                             <th class="px-4 py-3">ACTIONS</th>
                         </tr>
                     </thead>
                     <tbody class="bg-white">
-                        @foreach ($uniformidads as $uniformidad)
-                            <tr @class([
-                                'p-4',
-                                // 'font-bold' => $uniformidad->stock > 5,
-                                'font-semibold' => $uniformidad->stock > 0,
-                                'italic' => $uniformidad->stock > 5,
-                                'text-gray-500' => $uniformidad->stock == 0,
-                                'bg-red-500' => $uniformidad->stock == 0,
-                            ])>
+                        @foreach ($users as $user)
+                            <tr class="text-gray-700">
                                 <td class="px-4 py-3 border">
                                     <details class="group">
                                         <summary
@@ -123,38 +117,69 @@
                                                     </div>
                                                 </div>
                                                 <div>
-                                                    <p class="font-semibold text-black">{{ $uniformidad->name }}</p>
-                                                    {{-- <svg fill="none" height="24"
+                                                    <a href="{{ route('show-user', ['id' => $user->id]) }} ">
+                                                        <p class="font-semibold text-black">{{ $user->name }}</p>
+                                                        <p class="font-semibold text-black">{{ $user->surname }}
+                                                        </p>
+                                                    </a>
+                                                    <svg fill="none" height="24"
                                                         shape-rendering="geometricPrecision" stroke="currentColor"
                                                         stroke-linecap="round" stroke-linejoin="round"
                                                         stroke-width="1.5" viewBox="0 0 24 24" width="24">
                                                         <path d="M6 9l6 6 6-6"></path>
-                                                    </svg> --}}
+                                                    </svg>
                                                 </div>
                                             </div>
                                         </summary>
-                                        {{-- @foreach ($uniformidads as $uniformidad)
-                                            <p class="mt-3 text-neutral-600 group-open:animate-fadeIn">
-                                                {{ $uniformidad->type }} - {{ $uniformidad->created_at }}
-                                            </p>
-                                        @endforeach --}}
+                                        <h3 class="p-2 m-auto">ÚLTIMAS 3 UNIFORMIDADES ENTREGADAS</h3>
+                                        <table class="w-full">
+                                            <thead>
+                                                <tr
+                                                    class="font-semibold tracking-wide text-left text-gray-900 uppercase bg-gray-100 border-b border-gray-600 text-md">
+                                                    <th class="px-4 py-3">UNIFORMIDAD</th>
+                                                    <th class="px-4 py-3">FECHA ENTREGA</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @foreach ($user->uniformidads->take(3) as $uniformidad)
+                                                    <tr class="text-gray-700">
+                                                        <td class="px-4 py-3 font-semibold border text-ms">
+                                                            {{ $uniformidad->type }} - {{ $uniformidad->talla }}
+                                                            -{{ $uniformidad->color }}
+                                                        </td>
+                                                        <td class="px-4 py-3 font-semibold border text-ms">
+                                                            {{ $uniformidad->pivot->created_at }}
+                                                        </td>
+                                                    </tr>
+                                                @endforeach
+                                            </tbody>
+                                        </table>
                                     </details>
                                 </td>
-                                <td class="px-4 py-3 font-semibold border text-ms">{{ $uniformidad->type }}</td>
-                                {{-- <td class="px-4 py-3 text-xs border">
+                                <td class="px-4 py-3 font-semibold border text-ms">{{ $user->dni }}</td>
+                                <td class="px-4 py-3 text-xs border">
                                     <span
                                         class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-sm">
-                                        {{ $trabajador->email }} </span>
-                                </td> --}}
-                                <td class="px-4 py-3 font-semibold border text-ms">{{ $uniformidad->description }}</td>
-                                <td class="px-4 py-3 font-semibold border text-ms">{{ $uniformidad->color }}</td>
-                                <td class="px-4 py-3 font-semibold border text-ms">{{ $uniformidad->talla }}</td>
-                                <td class="px-4 py-3 font-semibold border text-ms">{{ $uniformidad->stock }}</td>
+                                        {{ $user->email }} </span>
+                                </td>
+                                <td class="px-4 py-3 font-semibold border text-ms">{{ $user->destiny }}</td>
+                                <td class="px-4 py-3 font-semibold border text-ms">{{ $user->tallaCamiseta }}
+                                </td>
+                                <td class="px-4 py-3 font-semibold border text-ms">{{ $user->tallaPantalon }}
+                                </td>
+                                <td class="px-4 py-3 font-semibold border text-ms">{{ $user->tallaCalzado }}
+                                </td>
                                 <td class="px-4 py-3 font-semibold border text-ms">
-                                    <a href="{{ route('update-uniformidad', ['id' => $uniformidad->id]) }}">
+                                    <a href="{{ route('update-user', ['id' => $user->id]) }}">
                                         <button type="button"
                                             class="inline-flex justify-center w-24 px-4 py-2 text-sm font-medium text-white bg-indigo-600 border border-transparent rounded-md shadow-sm ring ring-indigo-200 ring-offset-2 hover:bg-indigo-700 text-whitefocus:outline-none focus:ring-2 focus:ring-indigo-500">
                                             EDITAR
+                                        </button>
+                                    </a>
+                                    <a href="{{ route('delete-user', ['id' => $user->id]) }}">
+                                        <button type="button"
+                                            class="inline-flex justify-center w-24 px-4 py-2 text-sm font-medium text-white bg-red-600 border border-transparent rounded-md shadow-sm ring ring-red-200 ring-offset-2 hover:bg-red-700 text-whitefocus:outline-none focus:ring-2 focus:ring-indigo-500">
+                                            BORRAR
                                         </button>
                                     </a>
                                     {{-- <button type="submit"
@@ -162,7 +187,6 @@
                                         BORRAR
                                     </button> --}}
                                 </td>
-                                {{-- <td class="px-4 py-3 font-semibold border text-ms">{{ $trabajador->tallaCalzado }}</td> --}}
                             </tr>
                         @endforeach
                     </tbody>
@@ -170,4 +194,5 @@
             </div>
         </div>
     </section>
+    {{-- {{ $users->links() }} --}}
 </div>

@@ -124,7 +124,11 @@
                             <x-dropdown-link href="{{ route('trabajadors-deleted') }}">
                                 {{ __('Trabajadores Borrados') }}
                             </x-dropdown-link>
-
+                            @if (auth()->user()->roles[0]->name === 'ADMIN')
+                                <x-dropdown-link href="{{ route('users.index') }}">
+                                    {{ __('GESTIÓN USUARIOS Y ROLES') }}
+                                </x-dropdown-link>
+                            @endif
                             <x-dropdown-link href="{{ route('profile.show') }}">
                                 {{ __('Profile') }}
                             </x-dropdown-link>
@@ -172,6 +176,11 @@
             <x-responsive-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                 {{ __('Dashboard') }}
             </x-responsive-nav-link>
+            @if (auth()->user()->roles('ADMIN'))
+                <x-responsive-nav-link href="{{ route('users.index') }}">
+                    {{ __('GESTIÓN USUARIOS Y ROLES') }}
+                </x-responsive-nav-link>
+            @endif
             <x-responsive-nav-link href="{{ route('create-trabajador') }}" :active="request()->routeIs('create-trabajador')">
                 {{ __('AÑADIR TRABAJADOR') }}
             </x-responsive-nav-link>

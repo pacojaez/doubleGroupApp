@@ -17,8 +17,13 @@ class CreateTrabajador extends Component
     public $tallaPantalon = '';
     public $tallaCalzado = '';
 
+    public $user;
+
     public function save()
     {
+        $this->user = auth()->user();
+        $this->authorize('viewAny', $this->user);
+dd($this->user);
         Trabajador::create([
             'name' => $this->name,
             'surname' => $this->surname,
