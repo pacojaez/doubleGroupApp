@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
-    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="author" content="Paco J">
     <meta name="generator" content="Hugo 0.87.0">
     <title>DoubleGroup Uniformidads Users Gestion</title>
 

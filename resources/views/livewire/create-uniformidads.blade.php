@@ -62,11 +62,18 @@
                                             id="stock" wire:model="stock" {{-- autocomplete="given-name" --}}
                                             class="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                                     </div>
-                                    <button type="submit"
+                                    {{-- <button type="submit"
                                         class="inline-flex justify-center w-24 px-4 py-2 text-sm font-medium bg-indigo-600 border border-transparent rounded-md shadow-sm ring ring-indigo-500 ring-offset-4 hover:bg-indigo-700 text-whitefocus:outline-none focus:ring-2 focus:ring-indigo-500">
                                         Save
-                                    </button>
+                                    </button> --}}
 
+
+                                </div>
+                                <div class="flex flex-col w-full h-full mt-5">
+                                    <button type="submit"
+                                        class="px-5 py-3 mb-3 text-base font-medium text-white transition duration-200 bg-blue-500 rounded-full hover:bg-blue-600 active:bg-blue-700">
+                                        AÑADIR UNIFORMIDAD
+                                    </button>
                                 </div>
                             </div>
                         </div>

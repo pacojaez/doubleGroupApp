@@ -1,3 +1,4 @@
+{{-- <x-app-layout> --}}
 <div class="py-12">
     <section class="container p-6 mx-auto font-mono">
         <div class="w-full mb-2 overflow-hidden text-gray-200 bg-gray-600 rounded-lg shadow-lg">
@@ -27,7 +28,8 @@
                                             <select wire:model.defer="trabajador"
                                                 class="block w-full px-4 py-3 pr-8 border rounded appearance-none bg-grey-lighter border-grey-lighter text-grey-darker"
                                                 id="grid-state" required>
-                                                <option disabled value="null">SELECCIONA UN TRABAJADOR DE LA BASE DE
+                                                <option disabled value="null">SELECCIONA UN TRABAJADOR DE LA BASE
+                                                    DE
                                                     DATOS</option>
                                                 @foreach ($trabajadors as $trabajador)
                                                     <option value={{ $trabajador->id }}>
@@ -60,11 +62,13 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="px-4 py-3 text-right bg-white sm:px-6">
 
+                        </div>
+                        <div class="w-full px-4 py-3 text-right bg-white sm:px-6">
+                            <div class="flex flex-col h-full mt-5">
                                 <button type="submit"
-                                    class="inline-flex justify-center w-24 px-4 py-2 text-sm font-medium bg-indigo-600 border border-transparent rounded-md shadow-sm ring ring-indigo-500 ring-offset-4 hover:bg-indigo-700 text-whitefocus:outline-none focus:ring-2 focus:ring-indigo-500">
-                                    Save
+                                    class="px-5 py-3 mb-3 text-base font-medium text-white transition duration-200 bg-blue-500 rounded-full hover:bg-blue-600 active:bg-blue-700">
+                                    ASIGNAR UNIFORMIDAD AL TRABAJADOR
                                 </button>
                             </div>
                         </div>
@@ -79,3 +83,4 @@
         </div>
     </div>
 </div>
+{{-- </x-app-layout> --}}

@@ -34,20 +34,25 @@
                             <input type="text" wire:model="query" name="fName" id="fName"
                                 placeholder="Búsqueda por nombre"
                                 class="w-full rounded-md m-4 border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md" />
-                            <button type="submit"
-                                class="hover:shadow-form rounded-md bg-[#6A64F1] py-3 px-8 text-center text-base font-semibold text-white outline-none">
-                                BUSCAR
-                            </button>
+                            <div class="flex flex-col w-full h-full mt-5">
+                                <button type="submit"
+                                    class="px-5 py-3 mb-3 text-base font-medium text-white transition duration-200 bg-blue-500 rounded-full hover:bg-blue-600 active:bg-blue-700">
+                                    BUSCAR
+                                </button>
+                            </div>
                         </form>
 
                     </div>
                     <div class="w-full px-3 sm:w-1/2">
                         <div class="flex flex-row mb-5 items-between">
                             <form wire:submit="listAll">
-                                <button type="submit"
-                                    class="hover:shadow-form rounded-md bg-[#6A64F1] py-3 px-8 text-center text-base font-semibold text-white outline-none">
-                                    LISTAR TODAS LAS UNIFORMIDADES
-                                </button>
+
+                                <div type="submit" class="flex flex-col w-full h-full mt-5">
+                                    <button type="submit"
+                                        class="px-5 py-3 mb-3 text-base font-medium text-white transition duration-200 bg-blue-500 rounded-full hover:bg-blue-600 active:bg-blue-700">
+                                        LISTAR TODAS LAS UNIFORMIDADES
+                                    </button>
+                                </div>
                             </form>
 
                         </div>
@@ -107,21 +112,13 @@
                                 'font-semibold' => $uniformidad->stock > 0,
                                 'italic' => $uniformidad->stock > 5,
                                 'text-gray-500' => $uniformidad->stock == 0,
-                                'bg-red-500' => $uniformidad->stock == 0,
+                                'bg-red-300' => $uniformidad->stock == 0,
                             ])>
                                 <td class="px-4 py-3 border">
                                     <details class="group">
                                         <summary
                                             class="flex items-center justify-between font-medium list-none cursor-pointer">
                                             <div class="flex items-center text-sm">
-                                                <div class="relative w-8 h-8 mr-3 rounded-full md:block">
-                                                    {{-- <img class="object-cover w-full h-full rounded-full"
-                                                src="https://images.pexels.com/photos/5212324/pexels-photo-5212324.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260"
-                                                alt="" loading="lazy" /> --}}
-                                                    <div class="absolute inset-0 rounded-full shadow-inner"
-                                                        aria-hidden="true">
-                                                    </div>
-                                                </div>
                                                 <div>
                                                     <p class="font-semibold text-black">{{ $uniformidad->name }}</p>
                                                     {{-- <svg fill="none" height="24"

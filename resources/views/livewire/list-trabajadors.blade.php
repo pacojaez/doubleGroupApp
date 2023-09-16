@@ -47,22 +47,33 @@
                             <input type="text" wire:model="query" name="fName" id="fName"
                                 placeholder="Búsqueda por nombre"
                                 class="w-full rounded-md m-4 border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md" />
-                            <button type="submit"
+                            {{-- <button type="submit"
                                 class="hover:shadow-form rounded-md bg-[#6A64F1] py-3 px-8 text-center text-base font-semibold text-white outline-none">
                                 BUSCAR
-                            </button>
+                            </button> --}}
+                            <div type="submit" class="flex flex-col w-full h-full mt-5">
+                                <button
+                                    class="px-5 py-3 mb-3 text-base font-medium text-white transition duration-200 bg-blue-500 rounded-full hover:bg-blue-600 active:bg-blue-700">
+                                    BUSCAR
+                                </button>
+                            </div>
                         </form>
 
                     </div>
                     <div class="w-full px-3 sm:w-1/2">
                         <div class="flex flex-row mb-5 items-between">
                             <form wire:submit="listAll">
-                                <button type="submit"
+                                {{-- <button type="submit"
                                     class="hover:shadow-form rounded-md bg-[#6A64F1] py-3 px-8 text-center text-base font-semibold text-white outline-none">
                                     LISTAR TODOS LOS TRABAJADORES
-                                </button>
+                                </button> --}}
+                                <div class="flex flex-col w-full h-full mt-5">
+                                    <button type="submit"
+                                        class="px-5 py-3 mb-3 text-base font-medium text-white transition duration-200 bg-blue-500 rounded-full hover:bg-blue-600 active:bg-blue-700">
+                                        LISTAR TODOS LOS TRABAJADORES
+                                    </button>
+                                </div>
                             </form>
-
                         </div>
                     </div>
                 </div>
