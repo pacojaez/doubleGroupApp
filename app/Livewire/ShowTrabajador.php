@@ -15,13 +15,14 @@ class ShowTrabajador extends Component
     public function mount( $id )
     {
         $this->trabajador = Trabajador::findOrFail($id);
-        $this->trabajador->uniformidads;
-        // dd($this->trabajador);
-        // $this->uniformidads = Uniformidad::where()
+        $this->trabajador->getUniformidadsEntregadas;
+
+        $this->uniformidads = $this->trabajador->uniformidads()->orderBy('trabajador_uniformidad.created_at', 'desc')->get();
     }
 
     public function render()
     {
+
         return view('livewire.show-trabajador', [
             'trabajador' => $this->trabajador,
             'uniformidads' => $this->uniformidads

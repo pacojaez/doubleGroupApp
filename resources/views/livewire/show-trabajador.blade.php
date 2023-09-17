@@ -26,13 +26,13 @@
         </div>
     @endif
     <section class="container p-6 mx-auto font-mono">
-        <div class="w-full mb-2 overflow-hidden bg-gray-300 rounded-lg shadow-lg">
+        <div class="w-full mb-2 overflow-hidden bg-gray-400 rounded-lg shadow-lg">
             <div class="flex justify-center w-full overflow-x-auto">
-                <h2 class="text-xl font-bold">TRABAJADOR</h2>
+                <h2 class="p-2 m-4 text-2xl font-bold">TRABAJADOR</h2>
             </div>
         </div>
     </section>
-    <section class="container p-6 mx-auto font-mono">
+    <section class="container p-6 mx-auto font-mono bg-gray-400 rounded-lg shadow-lg">
         <div class="w-full mb-8 overflow-hidden rounded-lg shadow-lg">
             <div class="w-full overflow-x-auto">
                 <table class="w-full">
@@ -46,6 +46,7 @@
                             <th class="px-4 py-3">TALLA CAMISETA</th>
                             <th class="px-4 py-3">TALLA PANTALÓN</th>
                             <th class="px-4 py-3"># CALZADO</th>
+                            <th class="px-4 py-3">ACTIONS</th>
                         </tr>
                     </thead>
                     <tbody class="bg-white">
@@ -64,11 +65,9 @@
                                                 </div>
                                             </div>
                                             <div>
-                                                <a href="{{ route('show-trabajador', ['id' => $trabajador->id]) }} ">
-                                                    <p class="font-semibold text-black">{{ $trabajador->name }}</p>
-                                                    <p class="font-semibold text-black">{{ $trabajador->surname }}
-                                                    </p>
-                                                </a>
+                                                <p class="font-semibold text-black">{{ $trabajador->name }}</p>
+                                                <p class="font-semibold text-black">{{ $trabajador->surname }}
+                                                </p>
                                             </div>
                                         </div>
                                     </summary>
@@ -107,13 +106,13 @@
         </div>
     </section>
     <section class="container p-6 mx-auto font-mono">
-        <div class="w-full mb-2 overflow-hidden bg-gray-300 rounded-lg shadow-lg">
+        <div class="w-full mb-2 overflow-hidden bg-gray-200 rounded-lg shadow-lg">
             <div class="flex justify-center w-full overflow-x-auto">
-                <h2 class="text-xl font-bold">UNIFORMIDADES ENTREGADAS AL TRABAJADOR</h2>
+                <h2 class="p-2 m-4 text-2xl font-bold">UNIFORMIDADES ENTREGADAS AL TRABAJADOR</h2>
             </div>
         </div>
     </section>
-    <section class="container p-6 mx-auto font-mono">
+    <section class="container p-6 mx-auto font-mono bg-gray-200 rounded-lg shadow-lg">
         <div class="w-full mb-8 overflow-hidden rounded-lg shadow-lg">
             <div class="w-full overflow-x-auto">
                 <table class="w-full">
@@ -129,7 +128,7 @@
                         </tr>
                     </thead>
                     <tbody class="bg-white">
-                        @foreach ($trabajador->uniformidads as $uniformidad)
+                        @foreach ($uniformidads as $uniformidad)
                             <tr class="text-gray-700">
                                 <td class="px-4 py-3 border">
                                     <details class="group">

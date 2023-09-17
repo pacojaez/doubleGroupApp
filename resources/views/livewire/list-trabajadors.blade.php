@@ -134,16 +134,16 @@
                                                         <p class="font-semibold text-black">{{ $trabajador->surname }}
                                                         </p>
                                                     </a>
-                                                    <svg fill="none" height="24"
+                                                    {{-- <svg fill="none" height="24"
                                                         shape-rendering="geometricPrecision" stroke="currentColor"
                                                         stroke-linecap="round" stroke-linejoin="round"
                                                         stroke-width="1.5" viewBox="0 0 24 24" width="24">
                                                         <path d="M6 9l6 6 6-6"></path>
-                                                    </svg>
+                                                    </svg> --}}
                                                 </div>
                                             </div>
                                         </summary>
-                                        <h3 class="p-2 m-auto">ÚLTIMAS 3 UNIFORMIDADES ENTREGADAS</h3>
+                                        {{-- <h3 class="p-2 m-auto">ÚLTIMAS 3 UNIFORMIDADES ENTREGADAS</h3>
                                         <table class="w-full">
                                             <thead>
                                                 <tr
@@ -153,7 +153,7 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                @foreach ($trabajador->uniformidads->take(3) as $uniformidad)
+                                                @foreach ($trabajador->getLimitedUniformidads as $uniformidad)
                                                     <tr class="text-gray-700">
                                                         <td class="px-4 py-3 font-semibold border text-ms">
                                                             {{ $uniformidad->type }} - {{ $uniformidad->talla }}
@@ -165,7 +165,7 @@
                                                     </tr>
                                                 @endforeach
                                             </tbody>
-                                        </table>
+                                        </table> --}}
                                     </details>
                                 </td>
                                 <td class="px-4 py-3 font-semibold border text-ms">{{ $trabajador->dni }}</td>

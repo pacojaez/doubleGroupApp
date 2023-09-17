@@ -57,7 +57,16 @@ class Trabajador extends Model
 
     public function getLimitedUniformidads()
     {
-        return  $this->belongsToMany(Uniformidad::class)->take(3);
+        // dd($this->belongsToMany(Uniformidad::class)->withPivot(['created_at', 'trabajador_id', 'uniformidad_id'])->orderByPivot('created_at', 'DESC')->take(4));
+        // return  $this->belongsToMany(Uniformidad::class)->withPivot('created_at')->orderByPivot('created_at', 'DESC')->take(3);
+        return  $this->belongsToMany(Uniformidad::class)->withPivot('created_at', 'trabajador_id', 'uniformidad_id')->orderByPivot('created_at', 'DESC')->take(2);
+    }
+
+    public function getUniformidadsEntregadas()
+    {
+        // dd($this->belongsToMany(Uniformidad::class)->withPivot(['created_at', 'trabajador_id', 'uniformidad_id'])->orderByPivot('created_at', 'DESC')->take(4));
+        // return  $this->belongsToMany(Uniformidad::class)->withPivot('created_at')->orderByPivot('created_at', 'DESC')->take(3);
+        return  $this->belongsToMany(Uniformidad::class, 'trabajador_uniformidad', 'trabajador_id', 'uniformidad_id')->withTimestamps();
     }
 
 }

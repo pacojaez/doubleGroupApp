@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
+    <meta name="author" content="Paco J">
     <title>{{ config('app.name', 'DoubleGroup Uniformidades APP') }}</title>
 
     <!-- Fonts -->
@@ -24,10 +24,11 @@
 </head>
 
 <body>
+
     <div class="font-sans antialiased text-gray-900 dark:text-gray-100">
         {{ $slot }}
     </div>
-
+    @stack('modals')
     @livewireScripts
 </body>
 

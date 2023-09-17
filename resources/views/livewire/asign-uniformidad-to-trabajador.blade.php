@@ -1,4 +1,3 @@
-{{-- <x-app-layout> --}}
 <div class="py-12">
     <section class="container p-6 mx-auto font-mono">
         <div class="w-full mb-2 overflow-hidden text-gray-200 bg-gray-600 rounded-lg shadow-lg">
@@ -83,4 +82,3 @@
         </div>
     </div>
 </div>
-{{-- </x-app-layout> --}}
