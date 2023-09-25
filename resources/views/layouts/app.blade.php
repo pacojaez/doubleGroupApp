@@ -40,7 +40,6 @@
                 </div>
             </header>
         @endif
-        <p>hello worlds</p>
         <!-- Page Content -->
         <main>
             {{ $slot }}

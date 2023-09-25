@@ -11,6 +11,7 @@ class ShowTrabajador extends Component
 
     public $trabajador;
     public $uniformidads;
+    public $pivot_id;
 
     public function mount( $id )
     {
@@ -18,6 +19,7 @@ class ShowTrabajador extends Component
         $this->trabajador->getUniformidadsEntregadas;
 
         $this->uniformidads = $this->trabajador->uniformidads()->orderBy('trabajador_uniformidad.created_at', 'desc')->get();
+
     }
 
     public function render()
@@ -25,7 +27,8 @@ class ShowTrabajador extends Component
 
         return view('livewire.show-trabajador', [
             'trabajador' => $this->trabajador,
-            'uniformidads' => $this->uniformidads
+            'uniformidads' => $this->uniformidads,
+            'pivot_id' => $this->pivot_id
         ]);
     }
 }

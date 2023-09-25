@@ -52,21 +52,21 @@ class Trabajador extends Model
      */
     public function uniformidads(): BelongsToMany
     {
-        return $this->belongsToMany(Uniformidad::class)->withTimestamps();;
+        return $this->belongsToMany(Uniformidad::class)->withPivot('created_at', 'updated_at', 'trabajador_id', 'uniformidad_id', 'id')->withTimestamps();;
     }
 
     public function getLimitedUniformidads()
     {
         // dd($this->belongsToMany(Uniformidad::class)->withPivot(['created_at', 'trabajador_id', 'uniformidad_id'])->orderByPivot('created_at', 'DESC')->take(4));
         // return  $this->belongsToMany(Uniformidad::class)->withPivot('created_at')->orderByPivot('created_at', 'DESC')->take(3);
-        return  $this->belongsToMany(Uniformidad::class)->withPivot('created_at', 'trabajador_id', 'uniformidad_id')->orderByPivot('created_at', 'DESC')->take(2);
+        return  $this->belongsToMany(Uniformidad::class)->withPivot('created_at', 'updated_at', 'trabajador_id', 'uniformidad_id', 'id')->orderByPivot('created_at', 'DESC')->take(2);
     }
 
     public function getUniformidadsEntregadas()
     {
         // dd($this->belongsToMany(Uniformidad::class)->withPivot(['created_at', 'trabajador_id', 'uniformidad_id'])->orderByPivot('created_at', 'DESC')->take(4));
         // return  $this->belongsToMany(Uniformidad::class)->withPivot('created_at')->orderByPivot('created_at', 'DESC')->take(3);
-        return  $this->belongsToMany(Uniformidad::class, 'trabajador_uniformidad', 'trabajador_id', 'uniformidad_id')->withTimestamps();
+        return  $this->belongsToMany(Uniformidad::class, 'trabajador_uniformidad', 'trabajador_id', 'uniformidad_id', 'updated_at', 'id')->withTimestamps();
     }
 
 }

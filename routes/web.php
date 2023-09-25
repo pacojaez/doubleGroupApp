@@ -11,11 +11,12 @@ use App\Livewire\UpdateUniformidad;
 use App\Livewire\CreateUniformidads;
 use Illuminate\Support\Facades\Route;
 use App\Livewire\ForceDeleteTrabajador;
+use Illuminate\Support\Facades\Artisan;
 use App\Http\Controllers\RolesController;
+use App\Http\Controllers\UsersController;
+use App\Livewire\UpdateAssignUniformidad;
 use App\Livewire\AsignUniformidadToTrabajador;
 use App\Http\Controllers\PermissionsController;
-use App\Http\Controllers\UsersController;
-use Illuminate\Support\Facades\Artisan;
 
 /*
 |--------------------------------------------------------------------------
@@ -67,6 +68,8 @@ Route::middleware([
     Route::get('/uniformidad/{id}/update', UpdateUniformidad::class)->name('update-uniformidad');
     Route::delete('/trabajador/{id}/force-delete', ForceDeleteTrabajador::class)->name('trabajador-force-delete');
     Route::get('/trabajador/list/deleted', DeletedWorkers::class)->name('trabajadors-deleted');
+    Route::get('/update/assign/{pivot_id}', UpdateAssignUniformidad::class)->name('update-assign-uniformidad');
+
 });
 
 Route::group(['middleware' => ['guest']], function() {

@@ -171,9 +171,21 @@
                                 <td class="px-4 py-3 font-semibold border text-ms">{{ $uniformidad->color }}</td>
                                 <td class="px-4 py-3 font-semibold border text-ms">{{ $uniformidad->talla }}</td>
                                 <td class="px-4 py-3 font-semibold border text-ms">
-                                    {{ $uniformidad->pivot->created_at }}
+                                    @if ($uniformidad->pivot->updated_at != null)
+                                        {{ $uniformidad->pivot->updated_at }}
+                                    @else
+                                        {{ $uniformidad->pivot->created_at }}
+                                    @endif
                                 </td>
-                                {{-- <td class="px-4 py-3 font-semibold border text-ms">{{ $trabajador->tallaCalzado }}</td> --}}
+                                <td class="px-4 py-3 font-semibold border text-ms">
+                                    <a
+                                        href="{{ route('update-assign-uniformidad', ['pivot_id' => $uniformidad->pivot->id]) }}">
+                                        <button type="button"
+                                            class="inline-flex justify-center w-24 px-4 py-2 text-sm font-medium text-white bg-red-600 border border-transparent rounded-md shadow-sm ring ring-red-200 ring-offset-2 hover:bg-red-700 text-whitefocus:outline-none focus:ring-2 focus:ring-indigo-500">
+                                            MODIFICAR FECHA ENTREGA
+                                        </button>
+                                    </a>
+                                </td>
                             </tr>
                         @endforeach
                     </tbody>
