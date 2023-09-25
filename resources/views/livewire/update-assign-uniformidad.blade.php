@@ -1,5 +1,4 @@
 <div class="py-12">
-
     @if (session('updatedDate'))
         <div class="flex justify-center p-4 mb-4 text-sm text-green-700 bg-green-100 rounded-lg" role="alert"
             x-data="{ show: true }" x-show="show" x-init="setTimeout(() => show = false, 3000)">
@@ -76,7 +75,7 @@
                 <form wire:submit="updateAssign">
                     <!-- This is an example component -->
                     <div
-                        class="w-full py-5 overflow-hidden sm:text-3xl font-bold text-center text-black bg-gray-300 shadow h-14 sm:rounded-md ">
+                        class="w-full py-5 overflow-hidden font-bold text-center text-black bg-gray-300 shadow sm:text-3xl h-14 sm:rounded-md ">
                         Actualizar Fecha Entrega Uniformidad
                     </div>
                     <section class="relative p-0 m-0 text-gray-600 body-font"></section>

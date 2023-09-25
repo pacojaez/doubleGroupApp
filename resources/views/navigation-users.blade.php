@@ -13,12 +13,12 @@
                 <!-- Navigation Links -->
                 <div class="justify-center hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link href="{{ route('users.index') }}" :active="request()->routeIs('users.index')">
-                        {{ __('USUARIOS DE LA APP') }}
+                        {{ __('GESTIÓN USUARIOS APP') }}
                     </x-nav-link>
-                    <x-nav-link href="{{ url('/roles') }}" :active="request()->routeIs('/roles')">
+                    <x-nav-link href="{{ route('roles.index') }}" :active="request()->routeIs('roles.index')">
                         {{ __('ROLES') }}
                     </x-nav-link>
-                    <x-nav-link href="{{ url('/permissions') }}" :active="request()->routeIs('/permissions')">
+                    <x-nav-link href="{{ route('permissions.index') }}" :active="request()->routeIs('permissions.index')">
                         {{ __('PERMISOS') }}
                     </x-nav-link>
 
@@ -47,13 +47,13 @@
     <!-- Responsive Navigation Menu -->
     <div :class="{ 'block': open, 'hidden': !open }" class="hidden sm:hidden">
         <div class="pt-2 pb-3 space-y-1">
-            <x-responsive-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
-                {{ __('GESTION USUARIOS') }}
+            <x-responsive-nav-link href="{{ route('users.index') }}" :active="request()->routeIs('users.index')">
+                {{ __('GESTIÓN USUARIOS') }}
             </x-responsive-nav-link>
-            <x-responsive-nav-link href="{{ route('create-trabajador') }}" :active="request()->routeIs('create-trabajador')">
+            <x-responsive-nav-link href="{{ route('roles.index') }}" :active="request()->routeIs('roles.index')">
                 {{ __('ROLES') }}
             </x-responsive-nav-link>
-            <x-responsive-nav-link href="{{ route('list-trabajadors') }}" :active="request()->routeIs('list-trabajadors')">
+            <x-responsive-nav-link href="{{ route('permissions.index') }}" :active="request()->routeIs('permissions.index')">
                 {{ __('PERMISOS') }}
             </x-responsive-nav-link>
 

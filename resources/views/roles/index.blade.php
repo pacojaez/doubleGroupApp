@@ -25,14 +25,19 @@
                     <td>{{ $role->id }}</td>
                     <td>{{ $role->name }}</td>
                     <td>
-                        <a class="btn btn-info btn-sm" href="{{ route('roles.show', $role->id) }}">Show</a>
+                        <a class="inline-flex justify-center w-24 px-4 py-2 text-sm font-medium text-white bg-gray-600 border border-transparent rounded-md shadow-sm ring ring-gray-200 ring-offset-2 hover:bg-gray-700 text-whitefocus:outline-none focus:ring-2 focus:ring-gray-500"
+                            href="{{ route('roles.show', $role->id) }}">Show</a>
                     </td>
                     <td>
-                        <a class="btn btn-primary btn-sm" href="{{ route('roles.edit', $role->id) }}">Edit</a>
+                        <a class="inline-flex justify-center w-24 px-4 py-2 text-sm font-medium text-white bg-indigo-600 border border-transparent rounded-md shadow-sm ring ring-indigo-200 ring-offset-2 hover:bg-indigo-700 text-whitefocus:outline-none focus:ring-2 focus:ring-indigo-500"
+                            href="{{ route('roles.edit', $role->id) }}">Edit</a>
                     </td>
                     <td>
                         {!! Form::open(['method' => 'DELETE', 'route' => ['roles.destroy', $role->id], 'style' => 'display:inline']) !!}
-                        {!! Form::submit('Delete', ['class' => 'btn btn-danger btn-sm']) !!}
+                        {!! Form::submit('Delete', [
+                            'class' =>
+                                'inline-flex justify-center w-24 px-4 py-2 text-sm font-medium text-white bg-red-600 border border-transparent rounded-md shadow-sm ring ring-red-200 ring-offset-2 hover:bg-red-700 text-whitefocus:outline-none focus:ring-2 focus:ring-indigo-500',
+                        ]) !!}
                         {!! Form::close() !!}
                     </td>
                 </tr>
