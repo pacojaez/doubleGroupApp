@@ -7,8 +7,7 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-## About Laravel
-
+## About This APP
 Desarrollado en PHP 8.2.9 sobre Laravel Framework version 10.21.0.
 
 ## STACK
